@@ -24,7 +24,6 @@ Create an application that allows users to chat with each other in realtime.
 
 #### frontend 
 * Add Socket IO to your frontend, with a means for adding subsciber handlers
-* Add a redux-io middleware which will emit each action to the backend
 * Subscribe to the backend events
   * Update the store when the backend sends payloads
 
