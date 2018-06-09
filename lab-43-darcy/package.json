@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "babel-plugin-autobind-class-methods": "^5.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "express": "^4.16.3",
     "http": "0.0.0",
     "parcel-bundler": "^1.8.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "socket.io": "^2.1.1",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.1.1",
+    "uuidv4": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -18,5 +24,12 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      "dist/*",
+      ".cache/*"
+    ]
+  }
 }
