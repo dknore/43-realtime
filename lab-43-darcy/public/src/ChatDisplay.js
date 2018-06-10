@@ -10,13 +10,13 @@ export default class ChatDisplay extends Component {
   }
 
   componentDidMount() {
-    socket.on('initial-chat-info', (allChatInfo) => {
-      console.log('display got info', socket.id, allChatInfo);
+    socket.on('all-chat-info', (allChatInfo) => {
+      console.log('display ALL', socket.id, allChatInfo);
       this.setState({ chats: allChatInfo.chats });
     });
 
     socket.on('single-chat-info', (singleChatInfo) => {
-      console.log('display got info', socket.id, singleChatInfo);
+      console.log('display SINGLE', socket.id, singleChatInfo);
       const newArr = [...this.state.chats];
       newArr.push(singleChatInfo);
       this.setState({ chats: newArr });
@@ -26,7 +26,7 @@ export default class ChatDisplay extends Component {
   render() {
     return <ul>
       {this.state.chats.map((chatInfo, index) => {
-        return <li key={index}>{chatInfo.id}: {chatInfo.msg}</li>;
+        return <li key={index}>{chatInfo.user}: {chatInfo.msg}</li>;
       })}
     </ul>;
   }

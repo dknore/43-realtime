@@ -8,12 +8,12 @@ let chats = [];
 io.on('connection', socket => {
   console.log('connected:', socket.id);
 
-  io.emit('initial-chat-info', {chats});
+  io.emit('all-chat-info', {chats});
 
   socket.on('send-chat', (data) => {
     console.log('received chat', data);
     chats.push(data);
-    io.emit('single-chat-info', {msg: data.msg, id: data.id});
+    io.emit('single-chat-info', {id: data.id, user: data.user, msg: data.msg});
   });
 });
 
