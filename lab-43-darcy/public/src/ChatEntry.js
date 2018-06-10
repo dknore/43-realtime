@@ -7,19 +7,28 @@ export default class ChatEntry extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: uuidv4()
+      id: uuidv4(),
+      msg: '',
+      isEditing: false
     };
   }
 
-  updateValue = (ev) => {
-    this.setState({msg: ev.target.value});
+  updateValue = (event) => {
+    event.preventDefault();
+    this.setState({
+      msg: event.target.value,
+      isEditing: true
+    });
   }
 
   sendChat = () => {
     console.log('client chatted');
+    this.setState({
+      isEditing: true
+    })
     socket.emit('send-chat', {
       id: this.state.id,
-      msg: this.state.msg
+      msg: this.state.msg,
     });
   }
 
